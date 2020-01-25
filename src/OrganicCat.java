@@ -10,42 +10,41 @@ public class OrganicCat extends VirtualPet implements OrganicInterface {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void bathroom() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void feed() {
-		// TODO Auto-generated method stub
+		hunger= hunger + 5;		
+	}
+
+	public void bathroom() {
+		bathroom= bathroom + 5;
 		
 	}
 
-	@Override
 	public void water() {
-		// TODO Auto-generated method stub
+		thirst= thirst +5;
 		
 	}
+	
+	public void tick() {
+		super.tick();
+		hunger--;
+		bathroom--;
+		thirst--;
+	}
 
-	@Override
+
 	public int getHunger() {
-		// TODO Auto-generated method stub
 		return hunger;
 	}
 
-	@Override
+
 	public int getBathroom() {
-		// TODO Auto-generated method stub
 		return bathroom;
 	}
 
-	@Override
+
+
 	public int getThrist() {
-		// TODO Auto-generated method stub
 		return thirst;
 	}
-
-	
 
 }

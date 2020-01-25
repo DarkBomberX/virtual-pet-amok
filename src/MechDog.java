@@ -5,15 +5,19 @@ public class MechDog extends Dog implements MechInterface {
 	
 	public MechDog(String name, String description) {
 		super(name, description);
-		// TODO Auto-generated constructor stub
+		this.oil = 10;
 	}
 
-	@Override
 	public void oilPet() {
 		oil = oil +5;
 	}
-
+	
 	@Override
+	public void tick() {
+		super.tick();
+		oil--;
+	}
+
 	public int getOil() {
 		
 		return oil;

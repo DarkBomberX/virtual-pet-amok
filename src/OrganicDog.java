@@ -14,12 +14,11 @@ public class OrganicDog extends VirtualPet implements OrganicInterface {
 	
 	
 
-	@Override
 	public void feed() {
 		hunger= hunger + 5;		
 	}
 
-	@Override
+
 	public void bathroom() {
 		bathroom= bathroom + 5;
 		
@@ -27,29 +26,34 @@ public class OrganicDog extends VirtualPet implements OrganicInterface {
 
 
 
-	@Override
+
 	public void water() {
 		thirst= thirst +5;
 		
 	}
-
-
-
+	
 	@Override
+	public void tick() {
+		super.tick();
+		hunger--;
+		bathroom--;
+		thirst--;
+	}
+
+
+
 	public int getHunger() {
 		return hunger;
 	}
 
 
 
-	@Override
 	public int getBathroom() {
 		return bathroom;
 	}
 
 
 
-	@Override
 	public int getThrist() {
 		return thirst;
 	}

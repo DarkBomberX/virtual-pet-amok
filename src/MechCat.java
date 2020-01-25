@@ -5,19 +5,22 @@ public class MechCat extends Cat implements MechInterface {
 
 	public MechCat(String name, String description) {
 		super(name, description);
-		
+		this.oil = 10;
 	}
 
-	@Override
 	public void oilPet() {
-		// TODO Auto-generated method stub
-		
+		oil = oil + 10;
+
 	}
 
-	@Override
 	public int getOil() {
-		oil = oil +5;
-		return 0;
+		return oil;
+	}
+	
+	@Override
+	public void tick() {
+		super.tick();
+		oil--;
 	}
 
 }
