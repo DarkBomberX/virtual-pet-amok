@@ -11,7 +11,7 @@ public class VirtualPetShelterApp {
 			System.out.println("Welcome to Eddie's Pet Shelter!");
 			tellOptions();
 
-			String pick = input.nextLine();
+			String pick = input.nextLine().toUpperCase();
 
 			if (pick.equals("1")) {
 				boardPet(input, virtualPetShelter);
@@ -71,30 +71,29 @@ public class VirtualPetShelterApp {
 		System.out.println("What's it like?");
 		String description = input.nextLine().toUpperCase();
 
-		VirtualPet vp = null;
 		switch (catOrDog) {
 		case "CAT":
 			switch (robotOrReal) {
 			case "REAL":
-				vp = new OrganicCat(name, description);
+				virtualPetShelter.boardPet(new OrganicCat(name, description));
 				break;
 			default:
-				vp = new MechanicalCat(name, description);
+				virtualPetShelter.boardPet(new MechanicalCat(name, description));
 				break;
 			}
 			break;
 		default:
 			switch (robotOrReal) {
 			case "REAL":
-				vp = new OrganicDog(name, description);
+				virtualPetShelter.boardPet(new OrganicDog(name, description));
 				break;
 			default:
-				vp = new MechanicalDog(name, description);
+				virtualPetShelter.boardPet(new MechanicalDog(name, description));
 				break;
 			}
 			break;
 		}
-		virtualPetShelter.boardPet(vp);
+
 	}
 
 	public static void listPets(PetShelter virtualPetShelter) {
@@ -108,9 +107,19 @@ public class VirtualPetShelterApp {
 
 	public static void adoptPet(Scanner input, PetShelter virtualPetShelter) {
 		System.out.println("What's the Pet's Name?");
-		String name = input.nextLine().toUpperCase();
-		virtualPetShelter.adoptPet(name);
-		System.out.println("You Adopted " + name);
+		String name = input.nextLine();
+		while (!name.contains(name)) {
+			if (name.contains(name)) {
+				virtualPetShelter.adoptPet(name);
+				System.out.println("You Adopted " + name);
+			} else {
+				System.out.println("Pick a valid Option");
+				for (Map.Entry<String, VirtualPet> entry : virtualPetShelter.showAllPets().entrySet()) {
+					VirtualPet pet = entry.getValue();
+					System.out.println(pet.getName() + " : " + pet.getDescription());
+				}
+			}
+		}
 	}
 
 	public static void playWithPet(Scanner input, PetShelter virtualPetShelter) {
