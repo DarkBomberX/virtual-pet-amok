@@ -13,7 +13,6 @@ public class OrganicCat extends VirtualPet implements OrganicInterface {
 	public void feed() {
 		hunger= hunger + 5;		
 	}
-
 	public void bathroom() {
 		bathroom= bathroom + 5;
 		
@@ -24,6 +23,7 @@ public class OrganicCat extends VirtualPet implements OrganicInterface {
 		
 	}
 	
+	@Override
 	public void tick() {
 		super.tick();
 		hunger--;
@@ -40,7 +40,6 @@ public class OrganicCat extends VirtualPet implements OrganicInterface {
 	public int getBathroom() {
 		return bathroom;
 	}
-
 
 
 	public int getThrist() {

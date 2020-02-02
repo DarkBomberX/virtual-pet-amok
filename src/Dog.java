@@ -24,10 +24,17 @@ public class Dog extends VirtualPet {
 		super.tick();
 		cage--;
 		happiness--;
+		if (happiness <= 2) {
+			setHealth(getHealth() - 1);
+		}
 	}
 
 	public int getCage() {
 		return cage;
+	}
+	
+	public int getHappiness() {
+		return happiness;
 	}
 
 }

@@ -1,9 +1,9 @@
 
-public class MechDog extends Dog implements MechInterface {
+public class MechanicalDog extends Dog implements MechanicalInterface {
 
 	private int oil;
 	
-	public MechDog(String name, String description) {
+	public MechanicalDog(String name, String description) {
 		super(name, description);
 		this.oil = 10;
 	}
@@ -16,6 +16,9 @@ public class MechDog extends Dog implements MechInterface {
 	public void tick() {
 		super.tick();
 		oil--;
+		if (oil <= 2) {
+			setHealth(getHealth() - 1);
+		}
 	}
 
 	public int getOil() {

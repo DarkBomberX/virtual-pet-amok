@@ -17,6 +17,9 @@ public class Cat extends VirtualPet {
 	public void tick() {
 		super.tick();
 		litter--;
+		if (litter <= 2) {
+			setHealth(getHealth() - 1);
+		}
 	}
 
 	public int getLitter() {

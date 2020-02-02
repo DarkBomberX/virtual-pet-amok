@@ -1,5 +1,5 @@
 
-public interface MechInterface {
+public interface MechanicalInterface {
 	
 	void oilPet();
 	

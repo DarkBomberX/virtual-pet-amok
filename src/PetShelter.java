@@ -32,11 +32,11 @@ public class PetShelter {
 		}
 	}
 
-	public void oilPet() {
+	public void oilPets() {
 		for (Map.Entry<String, VirtualPet> entry : pets.entrySet()) {
 			VirtualPet pet = entry.getValue();
-			if (pet instanceof MechInterface) {
-				((MechInterface) pet).oilPet();
+			if (pet instanceof MechanicalInterface) {
+				((MechanicalInterface) pet).oilPet();
 			}
 		}
 	}
@@ -71,11 +71,15 @@ public class PetShelter {
 	public void playWithPet(String name) {
 		showOnePet(name).play();
 	}
-
+	
 	public void tickAll() {
 		for (Map.Entry<String, VirtualPet> entry : pets.entrySet()) {
 			VirtualPet pet = entry.getValue();
 			pet.tick();
+			if (pet.getHealth() <= 0) {
+				adoptPet(pet.getName());
+				System.out.println(pet.getName() + " has died due to your ignorance.");
+			}
 		}
 	}
 

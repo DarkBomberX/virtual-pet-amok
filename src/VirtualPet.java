@@ -11,21 +11,17 @@ public class VirtualPet {
 		this.description = description;
 		this.bordom = bordom;
 		this.sleep = sleep;
-		this.health= health;
+		this.setHealth(health);
 	}
 
 	public VirtualPet(String name, String description) {
 		this.name = name;
 		this.description = description;
-		this.bordom = 5;
-		this.sleep = 5;
-		this.health = 5;
+		this.bordom = 10;
+		this.sleep = 10;
+		this.setHealth(10);
 	}
 	
-	public void health() {
-		health = health +5;
-	}
-
 	public void rest() {
 		sleep += 10;
 	}
@@ -49,8 +45,8 @@ public class VirtualPet {
 		return description;
 	}
 	
-	public void getHealth() {
-		
+	public int getHealth() {
+		return health;
 	}
 
 	public int getBordom() {
@@ -59,6 +55,10 @@ public class VirtualPet {
 
 	public int getSleep() {
 		return sleep;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
 	}
 
 }

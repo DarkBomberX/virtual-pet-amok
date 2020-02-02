@@ -1,9 +1,9 @@
 
-public class MechCat extends Cat implements MechInterface {
+public class MechanicalCat extends Cat implements MechanicalInterface {
 
 	private int oil;
 
-	public MechCat(String name, String description) {
+	public MechanicalCat(String name, String description) {
 		super(name, description);
 		this.oil = 10;
 	}
@@ -21,6 +21,9 @@ public class MechCat extends Cat implements MechInterface {
 	public void tick() {
 		super.tick();
 		oil--;
+		if (oil <= 2) {
+			setHealth(getHealth() - 1);
+		}
 	}
 
 }

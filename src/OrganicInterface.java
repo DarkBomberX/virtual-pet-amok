@@ -5,8 +5,8 @@ public interface OrganicInterface {
 	void bathroom();
 	void water();
 	
-	public int getHunger();
-	public int getBathroom();
-	public int getThrist();
+	int getHunger();
+	int getBathroom();
+	int getThrist();
 	
 	}
