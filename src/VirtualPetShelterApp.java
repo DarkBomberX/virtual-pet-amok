@@ -4,13 +4,15 @@ import java.util.Scanner;
 public class VirtualPetShelterApp {
 
 	public static void main(String[] args) {
+		
+		
 		Scanner input = new Scanner(System.in);
 		PetShelter virtualPetShelter = new PetShelter();
+		System.out.println("Welcome to Eddie's Pet Shelter!");
+		
 		boolean running = true;
 		while (running) {
-			System.out.println("Welcome to Eddie's Pet Shelter!");
 			tellOptions();
-
 			String pick = input.nextLine().toUpperCase();
 
 			if (pick.equals("1")) {
@@ -20,17 +22,23 @@ public class VirtualPetShelterApp {
 			} else if (pick.equals("3")) {
 				virtualPetShelter.feedAllPet();
 				virtualPetShelter.tickAll();
+				System.out.println("The Pets enjoy their food!");
 			} else if (pick.equals("4")) {
 				virtualPetShelter.walkPets();
+				System.out.println("The talk are walking outside and enjoying the sun!");
 			} else if (pick.equals("5")) {
 				virtualPetShelter.oilPets();
+				System.out.println("The Robots are less squeeky and rusty!");
 			} else if (pick.equals("6")) {
 				virtualPetShelter.cleanCage();
+				System.out.println("The Cages Sparkle like New!");
 			} else if (pick.equals("7")) {
 				virtualPetShelter.cleanLitter();
+				System.out.println("It smell a little less gross in here... (-_-*)");
 			} else if (pick.equals("8")) {
 				virtualPetShelter.waterAllPet();
 				virtualPetShelter.tickAll();
+				System.out.println("The Pets are hydrated!");
 			} else if (pick.equals("9")) {
 				playWithPet(input, virtualPetShelter);
 				virtualPetShelter.tickAll();
@@ -108,19 +116,13 @@ public class VirtualPetShelterApp {
 	public static void adoptPet(Scanner input, PetShelter virtualPetShelter) {
 		System.out.println("What's the Pet's Name?");
 		String name = input.nextLine();
-		while (!name.contains(name)) {
 			if (name.contains(name)) {
 				virtualPetShelter.adoptPet(name);
 				System.out.println("You Adopted " + name);
 			} else {
-				System.out.println("Pick a valid Option");
-				for (Map.Entry<String, VirtualPet> entry : virtualPetShelter.showAllPets().entrySet()) {
-					VirtualPet pet = entry.getValue();
-					System.out.println(pet.getName() + " : " + pet.getDescription());
-				}
+				System.out.println("We currently have not pets to adopt.");
 			}
 		}
-	}
 
 	public static void playWithPet(Scanner input, PetShelter virtualPetShelter) {
 		listPets(virtualPetShelter);

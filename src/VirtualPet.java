@@ -6,13 +6,13 @@ public class VirtualPet {
 	private int sleep;
 	private int health;
 
-//	public VirtualPet(String name, String description, int bordom, int sleep, int health) {
-//		this.name = name;
-//		this.description = description;
-//		this.bordom = bordom;
-//		this.sleep = sleep;
-//		this.setHealth(health);
-//	}
+	public VirtualPet(String name, String description, int bordom, int sleep, int health) {
+		this.name = name;
+		this.description = description;
+		this.bordom = bordom;
+		this.sleep = sleep;
+		this.setHealth(health);
+	}
 
 	public VirtualPet(String name, String description) {
 		this.name = name;
